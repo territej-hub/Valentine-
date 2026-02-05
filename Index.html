@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Be My Girlfriend 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: 'Comic Sans MS', 'Poppins', cursive;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      max-width: 350px;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      color: #e63946;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #444;
+      font-size: 18px;
+    }
+
+    .cartoon {
+      font-size: 80px;
+      margin: 15px 0;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .yes {
+      background: #e63946;
+      color: white;
+    }
+
+    .yes:hover {
+      background: #d62839;
+      transform: scale(1.1);
+    }
+
+    .no {
+      background: #adb5bd;
+      color: #333;
+    }
+
+    .no:hover {
+      transform: translateX(10px);
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #e63946;
+      display: none;
+    }
+
+    /* Fireworks */
+    .firework {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: transparent;
+      border-radius: 50%;
+      animation: explode 1s ease-out forwards;
+    }
+
+    @keyframes explode {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(20);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="loveSong" preload="auto">
+      <source src="only-me-and-you-tems.mp3" type="audio/mpeg">
+    </audio>
+
+  <div class="card">
+    <div class="cartoon">🧸❤️</div>
+    <h1>Hey Babytee 💕</h1>
+    <p>Babytee, will you be my girlfriend? 💖<br><small>— Love, Tej</small></p>
+
+    <div class="buttons">
+      <button class="yes" onclick="sayYes()">Yes 💖</button>
+      <button class="no" onclick="breakHeart()">U gonna break my heart 💔</button>
+    </div>
+
+    <div class="message" id="message">
+      BABYTEE 🎆❤️
+      <br><br>
+      <span style="font-size:16px; color:#444;">
+        From the moment I met u ml❤️, I knew it was no coincidence, ever since have loved u so very much and I will forever love u
+      </span>
+    </div>
+  </div>
+
+  <script>
+    function sayYes() {
+      const msg = document.getElementById('message');
+      msg.style.display = 'block';
+      const song = document.getElementById('loveSong');
+      if (song) {
+        song.volume = 0.6;
+        song.play().catch(()=>{});
+      }
+      launchFireworks();
+    }
+
+    function breakHeart() {
+      alert("Ouch 😭 Please reconsider... my heart is fragile 💔");
+    }
+
+    function launchFireworks() {
+      const nameText = document.getElementById('message');
+      nameText.style.display = 'block';
+
+      for (let i = 0; i < 25; i++) {
+        const fw = document.createElement('div');
+        fw.className = 'firework';
+        fw.style.left = Math.random() * window.innerWidth + 'px';
+        fw.style.top = Math.random() * window.innerHeight + 'px';
+        fw.style.background = `hsl(${Math.random() * 360}, 100%, 60%)`;
+        document.body.appendChild(fw);
+
+        setTimeout(() => fw.remove(), 1200);
+      }
+    }, 100%, 60%)`;
+        document.body.appendChild(fw);
+
+        setTimeout(() => {
+          fw.remove();
+        }, 1000);
+      }
+    }
+  </script>
+
+</body>
+</html>
